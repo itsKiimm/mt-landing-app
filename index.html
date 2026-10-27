@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Master Training — Baixe o app</title>
-<meta name="description" content="Você criou a conta. Coloque seu aluno pra treinar num app com a sua marca. Baixe o app Master Training.">
+<meta name="description" content="Você já se cadastrou. Agora só falta baixar o app Master Training.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#050608">
 <link rel="icon" href="app/mt-logo.png">
@@ -304,6 +304,18 @@ body { margin: 0; }
   .final .btn-row .btn { width: 100%; }
   .cap__label { font-size: .82rem; }
 }
+
+/* ===== Só na versão de remarketing: dois botões de loja e rodapé mínimo ===== */
+.stores { display: flex; gap: .6rem; width: min(100%, 30rem); }
+.stores .btn { flex: 1; height: 3.5rem; padding: 0 1rem; gap: .55rem; min-width: 0; }
+.btn--store span { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; text-align: left; font-size: 1rem; white-space: nowrap; }
+.btn--store small { font-size: .66rem; font-weight: 500; opacity: .75; letter-spacing: .02em; }
+.btn--store svg { width: 1.35em; height: 1.35em; }
+.btn--store.is-other { background: transparent; color: var(--fg); border-color: var(--line-2); box-shadow: none; }
+.btn--store.is-other:hover { background: rgba(255,255,255,.05); filter: none; }
+.microfoot { padding: 1rem 0 calc(1.25rem + env(safe-area-inset-bottom)); color: var(--dim); font-size: .72rem; text-align: center; line-height: 1.5; }
+.microfoot a { color: var(--muted); text-decoration: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .ticker__track, .hero__bg i, .hero__bg .beam, .dots button.is-on::after { animation: none; }
   .rv { opacity: 1; translate: none; transition: none; }
@@ -314,12 +326,11 @@ body { margin: 0; }
 </style>
 </head>
 <body>
-<div class="mta has-sticky" id="top">
+<div class="mta" id="top">
 
   <!-- ===== TOPO ===== -->
   <header class="wrap top">
-    <a class="brand" href="#top"><img src="app/mt-logo.png" width="34" height="34" alt=""><span>Master Training</span></a>
-    <a class="btn js-store" href="#" data-track-cta="app_download" data-track-location="topo">Baixar o app</a>
+    <a class="brand" href="https://mtapp.com.br"><img src="app/mt-logo.png" width="34" height="34" alt=""><span>Master Training</span></a>
   </header>
 
   <!-- ===== HERO ===== -->
@@ -358,192 +369,22 @@ body { margin: 0; }
       </div>
 
       <div class="hero__cta rv in" data-d="2">
-        <a class="btn btn--lg js-store" href="#" data-track-cta="app_download" data-track-location="hero">
-          Baixar o app agora
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <div class="stores">
+          <a class="btn btn--store" href="https://apps.apple.com/br/app/mt-fitness/id6444232332" data-store="ios" data-track-cta="app_download" data-track-location="hero_ios">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.6-1-2.6-3.8zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.9-1 2.9 1.1.1 2.2-.5 2.8-1.4z"/></svg>
+            <span><small>Baixar na</small>App Store</span>
+          </a>
+          <a class="btn btn--store" href="https://play.google.com/store/apps/details?id=com.rafaelmuttoni.mtfitness" data-store="android" data-track-cta="app_download" data-track-location="hero_android">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l.1.1 9.5-9.5v-.2L3.7 2.2l-.1.1z"/><path d="M16.4 15.5l-3.2-3.2v-.2l3.2-3.2.1.1 3.8 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2.1-.1.1z" fill-opacity=".8"/><path d="M16.5 15.4L13.2 12 3.6 21.7c.4.4 1 .4 1.6.1l11.3-6.4" fill-opacity=".6"/><path d="M16.5 8.6L5.2 2.2c-.6-.4-1.2-.3-1.6.1l9.6 9.7 3.3-3.4z" fill-opacity=".9"/></svg>
+            <span><small>Baixar no</small>Google Play</span>
+          </a>
+        </div>
         <p class="btn-note">Grátis · 1 aluno sem prazo · mesmo e-mail da sua conta</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== TICKER ===== -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__track" id="ticker">
-      <span class="ticker__item"><b>“Foi um boom. Todos eles gostaram, todos eles aprovaram.”</b> personal, cliente MT</span>
-      <span class="ticker__item"><b>“Acharam o layout intuitivo, fácil de mexer.”</b> Lucas, SP</span>
-      <span class="ticker__item"><b>“Os vídeos, o tempo de descanso ser automático.”</b> Alan</span>
-      <span class="ticker__item"><b>“Um botão para iniciar o treino, um botão para finalizar.”</b> personal, cliente MT</span>
-      <span class="ticker__item"><b>“A experiência do aluno é tão boa quanto a do treinador.”</b> personal, cliente MT</span>
-    </div>
-  </div>
-
-  <!-- ===== O QUE O ALUNO VÊ ===== -->
-  <section class="wrap sec" id="aluno">
-    <div class="rv">
-      <span class="eyebrow">O que o seu aluno recebe</span>
-      <h2 class="h2">Cinco motivos pro seu aluno não sumir depois do primeiro mês.</h2>
-      <p class="lead">Aluno que vê a própria evolução não cancela por impulso. É isso que o app coloca na mão dele, com o seu nome em cima.</p>
-    </div>
-
-    <div class="story">
-      <div class="story__stage">
-        <div class="phone" id="storyPhone">
-          <div class="phone__frame">
-            <div class="phone__screen">
-              <div class="phone__status">
-                <span>9:41</span><span class="island"></span>
-                <svg viewBox="0 0 60 12" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M27 4.5a8 8 0 0 1 9.5 0l-1 1.3a6.3 6.3 0 0 0-7.5 0zM28.8 7a5 5 0 0 1 5.9 0l-1 1.3a3.3 3.3 0 0 0-3.9 0zM30.6 9.5a2 2 0 0 1 2.3 0L31.7 11z"/><rect x="40" y="1.5" width="17" height="9" rx="2.5" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="41.5" y="3" width="14" height="6" rx="1.2"/><rect x="58" y="4" width="1.5" height="4" rx=".5" fill-opacity=".5"/></svg>
-              </div>
-              <div class="phone__shots">
-                <img class="is-on" src="app/04-treino-video-carga.webp" width="738" height="1489" alt="" loading="lazy">
-                <img src="app/03-grafico-evolucao-elevacao-lateral.webp" width="738" height="1489" alt="" loading="lazy">
-                <img src="app/02-home-aluno-personalizavel.webp" width="738" height="1489" alt="" loading="lazy">
-                <img src="app/05-dieta.webp" width="738" height="1489" alt="" loading="lazy">
-                <img src="app/06-story.webp" width="738" height="1489" alt="" loading="lazy">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="feats">
-        <article class="feat is-on" data-shot="0">
-          <span class="feat__n">01 · TREINO</span>
-          <h3>Ele nunca mais vai perguntar “como faz esse exercício?”</h3>
-          <p>Vídeo de execução em cada exercício. Carga e repetições registradas série a série, com a última sessão na tela e o descanso cronometrado sozinho. Tudo volta pra você sem você pedir.</p>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v4l2.5 2.5"/><circle cx="12" cy="12" r="9"/></svg>Anterior: 50 kg × 15 · descanso automático</span>
-        </article>
-        <article class="feat" data-shot="1">
-          <span class="feat__n">02 · EVOLUÇÃO</span>
-          <h3>Ele vê a carga subir e quer bater o próprio recorde.</h3>
-          <p>Carga inicial, recorde pessoal e a curva de progressão de cada exercício. Prova visual de que o seu trabalho funciona, toda semana, sem você precisar explicar.</p>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>Progressão +70% · PR na tela</span>
-        </article>
-        <article class="feat" data-shot="2">
-          <span class="feat__n">03 · INÍCIO</span>
-          <h3>A tela inicial é dele. A marca é sua.</h3>
-          <p>Próximo treino, treinos do mês, volume, peso e a sua mensagem fixada. Ele escolhe os widgets e a ordem. Você aparece em todos.</p>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>Widgets que ele arrasta</span>
-        </article>
-        <article class="feat" data-shot="3">
-          <span class="feat__n">04 · DIETA</span>
-          <h3>Treino e dieta no mesmo app. Chega de PDF perdido no WhatsApp.</h3>
-          <p>Refeições com opções de troca e proteína, carboidrato e gordura por alimento. Ele marca cada refeição como feita e segue o plano sem te perguntar.</p>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 6"/></svg>Macros por alimento · marcar como feita</span>
-        </article>
-        <article class="feat" data-shot="4">
-          <span class="feat__n">05 · STORY</span>
-          <h3>Cada treino finalizado vira propaganda sua no Instagram dele.</h3>
-          <p>Foto dele, os números do treino, o seu nome e a sua logo. Seus alunos te indicam pra quem segue eles, de graça, sem você pedir.</p>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Seu nome + sua logo no story</span>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== LADO DO PERSONAL ===== -->
-  <section class="wrap sec sec--tight" id="personal">
-    <div class="rv">
-      <span class="eyebrow">Do seu lado</span>
-      <h2 class="h2">Você monta pelo celular. O resto o app faz.</h2>
-      <p class="lead">O treino sai do seu celular e chega no dele. O que ele faz na academia volta pra você, sem cobrar relatório de ninguém.</p>
-    </div>
-    <div class="trainer">
-      <div class="trainer__stage rv">
-        <div class="phone">
-          <div class="phone__frame">
-            <div class="phone__screen">
-              <div class="phone__status">
-                <span>9:41</span><span class="island"></span>
-                <svg viewBox="0 0 60 12" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M27 4.5a8 8 0 0 1 9.5 0l-1 1.3a6.3 6.3 0 0 0-7.5 0zM28.8 7a5 5 0 0 1 5.9 0l-1 1.3a3.3 3.3 0 0 0-3.9 0zM30.6 9.5a2 2 0 0 1 2.3 0L31.7 11z"/><rect x="40" y="1.5" width="17" height="9" rx="2.5" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="41.5" y="3" width="14" height="6" rx="1.2"/><rect x="58" y="4" width="1.5" height="4" rx=".5" fill-opacity=".5"/></svg>
-              </div>
-              <div class="phone__shots"><img class="is-on" src="app/01-montagem-de-treino.webp" width="738" height="1489" alt="Montagem de treino no app do personal" loading="lazy"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="grid">
-        <div class="card rv"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8v8M18 8v8M3 10v4M21 10v4M6 12h12"/></svg></div><h3>Monte com presets, pelo celular</h3><p>Série, repetição e descanso já prontos. O tempo estimado da sessão aparece enquanto você monta.</p></div>
-        <div class="card rv" data-d="1"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div><h3>Notificação quando ele finaliza</h3><p>As cargas e repetições que ele registrou já estão no histórico. Você sabe quem treinou e quem sumiu.</p></div>
-        <div class="card rv" data-d="2"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></div><h3>Chat dentro do app</h3><p>Ele manda a dúvida com o exercício anexado. Sem caçar print no WhatsApp.</p></div>
-        <div class="card rv" data-d="3"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Visão do aluno com um toque</h3><p>“Abrir visão do aluno” mostra a tela exatamente como ele recebe, sem precisar de outro celular.</p></div>
-        <div class="card rv" data-d="1"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9.4l-4.2 1.8L12 16l-1.8-4.8L6 9.4l4.2-1.8z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></div><h3>IA que monta treino e dieta</h3><p>Um pedido, dentro do protocolo do aluno. Você revisa e envia.</p></div>
-        <div class="card rv" data-d="2"><div class="card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/></svg></div><h3>Sua logo, suas cores</h3><p>No seu app e no do aluno. A consultoria que ele abre todo dia tem o seu nome.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROVA ===== -->
-  <section class="wrap sec sec--tight" id="prova">
-    <div class="rv">
-      <span class="eyebrow">Quem já usa</span>
-      <h2 class="h2">Não acredite em mim. Olhe o que os alunos deles disseram.</h2>
-    </div>
-    <div class="quotes">
-      <figure class="quote rv" style="margin:0"><span class="quote__mark">“</span><p>Quando eu falei que ia pra aplicativo foi um boom. Todos eles gostaram, todos eles aprovaram.</p><footer><i>P</i>Personal, cliente Master Training</footer></figure>
-      <figure class="quote rv" data-d="1" style="margin:0"><span class="quote__mark">“</span><p>Os alunos elogiaram bastante quando eu fiz a migração. Acharam o layout intuitivo, fácil de mexer.</p><footer><i>L</i>Lucas · personal, São Paulo</footer></figure>
-      <figure class="quote rv" data-d="2" style="margin:0"><span class="quote__mark">“</span><p>Um botão para iniciar o treino, um botão para finalizar, e automaticamente essa informação já vem para mim.</p><footer><i>P</i>Personal, cliente Master Training</footer></figure>
-    </div>
-    <div class="nums">
-      <div class="num rv"><b>“De 40, 45 minutos pra 20”</b><span>por treino montado, na planilha contra o app</span></div>
-      <div class="num rv" data-d="1"><b>“Em torno de dez horas”</b><span>da semana de volta, pra dar aula e treinar</span></div>
-      <div class="num rv" data-d="2"><b>“Uma semana de teste foi o suficiente”</b><span>pra migrar do app anterior</span></div>
-    </div>
-    <p class="nums-note rv">Falas de personais clientes, em depoimento gravado.</p>
-  </section>
-
-  <!-- ===== PASSOS ===== -->
-  <section class="wrap sec sec--tight" id="passos">
-    <div class="rv">
-      <span class="eyebrow">Leva três passos</span>
-      <h2 class="h2">Do download ao primeiro treino entregue.</h2>
-    </div>
-    <div class="steps">
-      <div class="step rv"><h3>Baixe e entre</h3><p>Toque em <kbd>Sou profissional</kbd> e entre com o mesmo e-mail da sua conta: código por e-mail ou Google. Sem senha nova.</p></div>
-      <div class="step rv" data-d="1"><h3>Traga o primeiro aluno</h3><p>Mande o seu link de cadastro no WhatsApp dele. Ele entra sozinho. Ou cadastre você mesmo em <kbd>Clientes</kbd>.</p></div>
-      <div class="step rv" data-d="2"><h3>Monte e envie</h3><p>Monte com os presets ou peça pra IA. O treino aparece no celular dele, pronto pra treinar.</p></div>
-    </div>
-  </section>
-
-  <!-- ===== FECHAMENTO ===== -->
-  <section class="wrap final" id="baixar">
-    <div class="final__box rv">
-      <span class="eyebrow">Sua conta continua ativa</span>
-      <h2 style="margin-top:.75rem">1 aluno grátis. Sem prazo. Sem cartão.</h2>
-      <p class="lead">Baixe o app, entre com o seu e-mail e mande o primeiro treino hoje. Se o seu aluno não gostar, você não perdeu nada. Se gostar, os outros entram quando você quiser.</p>
-      <div class="btn-row">
-        <a class="btn btn--lg" href="https://apps.apple.com/br/app/mt-fitness/id6444232332" data-store="ios" data-track-cta="app_download" data-track-location="final_ios">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.6-1-2.6-3.8zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.9-1 2.9 1.1.1 2.2-.5 2.8-1.4z"/></svg>
-          Baixar para iPhone
-        </a>
-        <a class="btn btn--lg btn--ghost" href="https://play.google.com/store/apps/details?id=com.rafaelmuttoni.mtfitness" data-store="android" data-track-cta="app_download" data-track-location="final_android">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l.1.1 9.5-9.5v-.2L3.7 2.2l-.1.1z"/><path d="M16.4 15.5l-3.2-3.2v-.2l3.2-3.2.1.1 3.8 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2.1-.1.1z" fill-opacity=".8"/><path d="M16.5 15.4L13.2 12 3.6 21.7c.4.4 1 .4 1.6.1l11.3-6.4" fill-opacity=".6"/><path d="M16.5 8.6L5.2 2.2c-.6-.4-1.2-.3-1.6.1l9.6 9.7 3.3-3.4z" fill-opacity=".9"/></svg>
-          Baixar para Android
-        </a>
-      </div>
-      <p class="btn-note">Grátis nas duas lojas · o login é o mesmo da sua conta</p>
-    </div>
-  </section>
-
-  <!-- ===== RODAPÉ ===== -->
-  <footer class="wrap foot">
-    <div class="foot__row">
-      <a class="brand" href="https://mtapp.com.br"><img src="app/mt-logo.png" width="34" height="34" alt=""><span>Master Training</span></a>
-      <nav>
-        <a href="https://apps.apple.com/br/app/mt-fitness/id6444232332" data-store="ios">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.rafaelmuttoni.mtfitness" data-store="android">Google Play</a>
-        <a href="https://mtapp.com.br/login">Entrar pelo computador</a>
-        <a href="https://mtapp.com.br/privacy">Privacidade</a>
-      </nav>
-    </div>
-    <small>Este site não faz parte do Facebook, do Instagram ou da Meta Platforms, Inc., e não é endossado por eles de nenhuma forma. Os prints mostram uma conta de demonstração do app.</small>
-  </footer>
-
-  <!-- ===== BARRA FIXA (celular) ===== -->
-  <div class="sticky-cta" id="stickyCta">
-    <a class="btn btn--lg js-store" href="#" data-track-cta="app_download" data-track-location="barra_fixa">Baixar o app agora</a>
-  </div>
+  <footer class="wrap microfoot">Este site não faz parte do Facebook, do Instagram ou da Meta Platforms, Inc., e não é endossado por eles de nenhuma forma. Os prints mostram uma conta de demonstração do app. · <a href="https://mtapp.com.br/privacy">Privacidade</a></footer>
 </div>
 
 <script>
@@ -552,14 +393,12 @@ body { margin: 0; }
   var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.rafaelmuttoni.mtfitness';
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Loja certa pro aparelho. No computador, o botão leva pro bloco com as duas lojas. */
   var ua = navigator.userAgent || '';
   var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var isAndroid = /Android/.test(ua);
-  document.querySelectorAll('.js-store').forEach(function (a) {
-    if (isIOS) { a.href = APP_STORE; a.setAttribute('data-store', 'ios'); }
-    else if (isAndroid) { a.href = PLAY_STORE; a.setAttribute('data-store', 'android'); }
-    else { a.href = '#baixar'; }
+  /* Os dois botões ficam na tela; o da loja do aparelho fica verde, o outro vira contorno. */
+  if (isIOS || isAndroid) document.querySelectorAll('.btn--store').forEach(function (a) {
+    a.classList.toggle('is-other', a.getAttribute('data-store') !== (isIOS ? 'ios' : 'android'));
   });
 
   /* Clique na loja -> pixel (navegador) + /api/fb-event (servidor) com o MESMO event_id, igual à /mobile. */
@@ -640,49 +479,6 @@ body { margin: 0; }
     rot[r].classList.add('is-on');
   }, 2000);
 
-  /* Ticker: duplica o conteúdo pra rodar sem emenda. */
-  var tk = document.getElementById('ticker'); tk.innerHTML += tk.innerHTML;
-
-  /* Seção do aluno: a tela do celular fixo segue o bloco de texto que está sendo lido.
-     No celular, a "linha de leitura" fica no espaço visível abaixo do aparelho preso;
-     no computador, no meio da tela. Vale o último bloco cujo topo já passou da linha. */
-  var stage = document.querySelector('.story__stage');
-  var sShots = document.querySelectorAll('#storyPhone .phone__shots img');
-  var feats = document.querySelectorAll('.feat');
-  var cur = 0, ticking = false;
-  function pick() {
-    ticking = false;
-    var vh = document.documentElement.clientHeight || innerHeight, line;
-    if (matchMedia('(max-width: 960px)').matches) { var sb = stage.getBoundingClientRect().bottom; line = sb + (vh - sb) * 0.3; }
-    else line = vh * 0.45;
-    var k = 0;
-    feats.forEach(function (f, n) { if (f.getBoundingClientRect().top <= line) k = n; });
-    if (k === cur) return;
-    cur = k;
-    feats.forEach(function (f, n) { f.classList.toggle('is-on', n === k); });
-    sShots.forEach(function (im, n) { im.classList.toggle('is-on', n === k); });
-  }
-  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(pick); } }
-  addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', onScroll);
-  pick();
-
-  if ('IntersectionObserver' in window) {
-    /* Revelação ao rolar */
-    var rv = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); rv.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
-    document.querySelectorAll('.rv:not(.in)').forEach(function (el) { rv.observe(el); });
-
-    /* Barra fixa aparece depois do hero e some no bloco final (que já tem os botões). */
-    var bar = document.getElementById('stickyCta'), heroEl = document.querySelector('.hero'), finalEl = document.getElementById('baixar');
-    var pastHero = false, atFinal = false;
-    function sync() { bar.classList.toggle('is-on', pastHero && !atFinal); }
-    new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting && e[0].boundingClientRect.bottom < 0; sync(); }, { threshold: 0 }).observe(heroEl);
-    new IntersectionObserver(function (e) { atFinal = e[0].isIntersecting; sync(); }, { threshold: .15 }).observe(finalEl);
-  } else {
-    document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
-  }
 })();
 </script>
 </body>

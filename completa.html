@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Master Training — Baixe o app</title>
-<meta name="description" content="Você criou a conta. Coloque seu aluno pra treinar num app com a sua marca. Baixe o app Master Training.">
+<title>Master Training — Comece seu teste grátis</title>
+<meta name="description" content="Crie sua conta no Master Training e monte seu primeiro treino hoje. Teste grátis, sem cartão de crédito.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#050608">
 <link rel="icon" href="app/mt-logo.png">
@@ -304,6 +304,36 @@ body { margin: 0; }
   .final .btn-row .btn { width: 100%; }
   .cap__label { font-size: .82rem; }
 }
+
+/* ===== Só na versão de remarketing: dois botões de loja e rodapé mínimo ===== */
+.stores { display: flex; gap: .6rem; width: min(100%, 30rem); }
+.stores .btn { flex: 1; height: 3.5rem; padding: 0 1rem; gap: .55rem; min-width: 0; }
+.btn--store span { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; text-align: left; font-size: 1rem; white-space: nowrap; }
+.btn--store small { font-size: .66rem; font-weight: 500; opacity: .75; letter-spacing: .02em; }
+.btn--store svg { width: 1.35em; height: 1.35em; }
+.btn--store.is-other { background: transparent; color: var(--fg); border-color: var(--line-2); box-shadow: none; }
+.btn--store.is-other:hover { background: rgba(255,255,255,.05); filter: none; }
+.microfoot { padding: 1rem 0 calc(1.25rem + env(safe-area-inset-bottom)); color: var(--dim); font-size: .72rem; text-align: center; line-height: 1.5; }
+.microfoot a { color: var(--muted); text-decoration: none; }
+
+
+/* ===== Hero da versão completa (tráfego frio): texto + botão à esquerda, pilha de telas à direita ===== */
+.hero--cold .hero__in { display: grid; grid-template-columns: 1.05fr .95fr; gap: 2rem 3rem; align-items: center; text-align: left; min-height: min(calc(100svh - 72px), 820px); max-height: none; padding: 1rem 0 1.5rem; }
+.hero--cold .hero__copy { max-width: 36rem; justify-self: start; }
+.hero--cold h1 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); }
+.hero--cold .lead { margin-top: 1rem; }
+.hero--cold .hero__cta { align-items: flex-start; margin-top: 1.5rem; }
+.hero--cold .hero__side { display: flex; flex-direction: column; align-items: center; gap: .9rem; min-width: 0; }
+.hero--cold .flow { height: 540px; flex: none; max-height: none; min-height: 0; overflow: hidden; }
+@media (max-width: 960px) {
+  .hero--cold .hero__in { grid-template-columns: 1fr; text-align: center; gap: 2rem; min-height: 0; }
+  .hero--cold .hero__copy { justify-self: center; }
+  .hero--cold .hero__cta { align-items: center; }
+  .hero--cold h1 { font-size: clamp(1.9rem, 7.6vw, 3rem); }
+  .hero--cold .flow { height: 400px; }
+}
+@media (max-width: 640px) { .hero--cold .hero__cta .btn { width: 100%; } }
+
 @media (prefers-reduced-motion: reduce) {
   .ticker__track, .hero__bg i, .hero__bg .beam, .dots button.is-on::after { animation: none; }
   .rv { opacity: 1; translate: none; transition: none; }
@@ -319,16 +349,16 @@ body { margin: 0; }
   <!-- ===== TOPO ===== -->
   <header class="wrap top">
     <a class="brand" href="#top"><img src="app/mt-logo.png" width="34" height="34" alt=""><span>Master Training</span></a>
-    <a class="btn js-store" href="#" data-track-cta="app_download" data-track-location="topo">Baixar o app</a>
+    <a class="btn" href="https://landing.mtapp.com.br/master-training-v11" data-track-cta="free_trial" data-track-location="topo">Começar grátis</a>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
+  <!-- ===== HERO (tráfego frio: cria a conta) ===== -->
+  <section class="hero hero--cold">
     <div class="hero__bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="beam"></i></div>
     <div class="wrap hero__in">
       <div class="hero__copy">
-        <span class="eyebrow eyebrow--hero rv in">Você já se cadastrou. Agora só falta… <svg class="bob" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg></span>
-        <h1 class="rv in" data-d="1">Baixe o app para
+        <span class="eyebrow eyebrow--hero rv in">Teste grátis · 10 dias · sem cartão</span>
+        <h1 class="rv in" data-d="1">Comece hoje a
           <span class="rot" id="rot" aria-live="polite">
             <span class="is-on">ganhar tempo</span>
             <span>vender mais</span>
@@ -338,31 +368,33 @@ body { margin: 0; }
             <span>controlar cargas</span>
             <span>automatizar avaliações</span>
           </span>
-          com o Master Training.</h1>
+          no Master Training.</h1>
+        <p class="lead rv in" data-d="2">Treino, dieta, evolução, cobrança e IA num app com a sua marca. Seus alunos usam de graça.</p>
+        <div class="hero__cta rv in" data-d="2">
+          <a class="btn btn--lg" href="https://landing.mtapp.com.br/master-training-v11" data-track-cta="free_trial" data-track-location="hero">
+            Começar meus 10 dias grátis
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="btn-note">Sem cartão · sem fidelidade · seus alunos não pagam nada</p>
+        </div>
       </div>
 
-      <div class="flow" id="flow" aria-label="Telas do app do aluno">
-        <button class="arrow arrow--l" id="heroPrev" type="button" aria-label="Tela anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <div class="flow__track" id="flowTrack">
-          <div class="phone" data-cap="Treino com vídeo e carga"><div class="phone__frame"><div class="phone__screen"><div class="phone__status"><span>9:41</span><span class="island"></span><svg viewBox="0 0 60 12" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M27 4.5a8 8 0 0 1 9.5 0l-1 1.3a6.3 6.3 0 0 0-7.5 0zM28.8 7a5 5 0 0 1 5.9 0l-1 1.3a3.3 3.3 0 0 0-3.9 0zM30.6 9.5a2 2 0 0 1 2.3 0L31.7 11z"/><rect x="40" y="1.5" width="17" height="9" rx="2.5" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="41.5" y="3" width="14" height="6" rx="1.2"/><rect x="58" y="4" width="1.5" height="4" rx=".5" fill-opacity=".5"/></svg></div><div class="phone__shots"><img class="is-on" src="app/04-treino-video-carga.webp" width="738" height="1489" alt="Tela de treino do aluno com vídeo do exercício e cargas registradas" fetchpriority="high"></div><div class="phone__gloss"></div></div></div></div>
+      <div class="hero__side">
+        <div class="flow" id="flow" aria-label="Telas do app do aluno">
+          <button class="arrow arrow--l" id="heroPrev" type="button" aria-label="Tela anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="flow__track" id="flowTrack">
+            <div class="phone" data-cap="Treino com vídeo e carga"><div class="phone__frame"><div class="phone__screen"><div class="phone__status"><span>9:41</span><span class="island"></span><svg viewBox="0 0 60 12" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M27 4.5a8 8 0 0 1 9.5 0l-1 1.3a6.3 6.3 0 0 0-7.5 0zM28.8 7a5 5 0 0 1 5.9 0l-1 1.3a3.3 3.3 0 0 0-3.9 0zM30.6 9.5a2 2 0 0 1 2.3 0L31.7 11z"/><rect x="40" y="1.5" width="17" height="9" rx="2.5" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="41.5" y="3" width="14" height="6" rx="1.2"/><rect x="58" y="4" width="1.5" height="4" rx=".5" fill-opacity=".5"/></svg></div><div class="phone__shots"><img class="is-on" src="app/04-treino-video-carga.webp" width="738" height="1489" alt="Tela de treino do aluno com vídeo do exercício e cargas registradas" fetchpriority="high"></div><div class="phone__gloss"></div></div></div></div>
           <div class="phone" data-cap="Gráfico de evolução"><div class="phone__frame"><div class="phone__screen"><div class="phone__status"><span>9:41</span><span class="island"></span><svg viewBox="0 0 60 12" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M27 4.5a8 8 0 0 1 9.5 0l-1 1.3a6.3 6.3 0 0 0-7.5 0zM28.8 7a5 5 0 0 1 5.9 0l-1 1.3a3.3 3.3 0 0 0-3.9 0zM30.6 9.5a2 2 0 0 1 2.3 0L31.7 11z"/><rect x="40" y="1.5" width="17" height="9" rx="2.5" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="41.5" y="3" width="14" height="6" rx="1.2"/><rect x="58" y="4" width="1.5" height="4" rx=".5" fill-opacity=".5"/></svg></div><div class="phone__shots"><img class="is-on" src="app/03-grafico-evolucao-elevacao-lateral.webp" width="738" height="1489" alt="Gráfico de evolução de carga de um exercício"></div><div class="phone__gloss"></div></div></div></div>
           <div class="phone" data-cap="Home que o aluno monta"><div class="phone__frame"><div class="phone__screen"><div class="phone__status"><span>9:41</span><span class="island"></span><svg viewBox="0 0 60 12" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M27 4.5a8 8 0 0 1 9.5 0l-1 1.3a6.3 6.3 0 0 0-7.5 0zM28.8 7a5 5 0 0 1 5.9 0l-1 1.3a3.3 3.3 0 0 0-3.9 0zM30.6 9.5a2 2 0 0 1 2.3 0L31.7 11z"/><rect x="40" y="1.5" width="17" height="9" rx="2.5" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="41.5" y="3" width="14" height="6" rx="1.2"/><rect x="58" y="4" width="1.5" height="4" rx=".5" fill-opacity=".5"/></svg></div><div class="phone__shots"><img class="is-on" src="app/02-home-aluno-personalizavel.webp" width="738" height="1489" alt="Tela inicial do aluno com widgets"></div><div class="phone__gloss"></div></div></div></div>
           <div class="phone" data-cap="Dieta no mesmo app"><div class="phone__frame"><div class="phone__screen"><div class="phone__status"><span>9:41</span><span class="island"></span><svg viewBox="0 0 60 12" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M27 4.5a8 8 0 0 1 9.5 0l-1 1.3a6.3 6.3 0 0 0-7.5 0zM28.8 7a5 5 0 0 1 5.9 0l-1 1.3a3.3 3.3 0 0 0-3.9 0zM30.6 9.5a2 2 0 0 1 2.3 0L31.7 11z"/><rect x="40" y="1.5" width="17" height="9" rx="2.5" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="41.5" y="3" width="14" height="6" rx="1.2"/><rect x="58" y="4" width="1.5" height="4" rx=".5" fill-opacity=".5"/></svg></div><div class="phone__shots"><img class="is-on" src="app/05-dieta.webp" width="738" height="1489" alt="Plano alimentar do aluno"></div><div class="phone__gloss"></div></div></div></div>
           <div class="phone" data-cap="Story com a sua marca"><div class="phone__frame"><div class="phone__screen"><div class="phone__status"><span>9:41</span><span class="island"></span><svg viewBox="0 0 60 12" fill="#fff" aria-hidden="true"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M27 4.5a8 8 0 0 1 9.5 0l-1 1.3a6.3 6.3 0 0 0-7.5 0zM28.8 7a5 5 0 0 1 5.9 0l-1 1.3a3.3 3.3 0 0 0-3.9 0zM30.6 9.5a2 2 0 0 1 2.3 0L31.7 11z"/><rect x="40" y="1.5" width="17" height="9" rx="2.5" fill="none" stroke="#fff" stroke-opacity=".5"/><rect x="41.5" y="3" width="14" height="6" rx="1.2"/><rect x="58" y="4" width="1.5" height="4" rx=".5" fill-opacity=".5"/></svg></div><div class="phone__shots"><img class="is-on" src="app/06-story.webp" width="738" height="1489" alt="Compartilhar treino no story"></div><div class="phone__gloss"></div></div></div></div>
+          </div>
+          <button class="arrow arrow--r" id="heroNext" type="button" aria-label="Próxima tela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
-        <button class="arrow arrow--r" id="heroNext" type="button" aria-label="Próxima tela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-      <div class="flow__cap">
-        <div class="cap__label"><i></i><span id="heroCap">Treino com vídeo e carga</span></div>
-        <div class="dots" id="heroDots" role="tablist" aria-label="Trocar tela"></div>
-      </div>
-
-      <div class="hero__cta rv in" data-d="2">
-        <a class="btn btn--lg js-store" href="#" data-track-cta="app_download" data-track-location="hero">
-          Baixar o app agora
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <p class="btn-note">Grátis · 1 aluno sem prazo · mesmo e-mail da sua conta</p>
+        <div class="flow__cap">
+          <div class="cap__label"><i></i><span id="heroCap">Treino com vídeo e carga</span></div>
+          <div class="dots" id="heroDots" role="tablist" aria-label="Trocar tela"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -497,10 +529,10 @@ body { margin: 0; }
   <section class="wrap sec sec--tight" id="passos">
     <div class="rv">
       <span class="eyebrow">Leva três passos</span>
-      <h2 class="h2">Do download ao primeiro treino entregue.</h2>
+      <h2 class="h2">Da conta criada ao primeiro treino entregue.</h2>
     </div>
     <div class="steps">
-      <div class="step rv"><h3>Baixe e entre</h3><p>Toque em <kbd>Sou profissional</kbd> e entre com o mesmo e-mail da sua conta: código por e-mail ou Google. Sem senha nova.</p></div>
+      <div class="step rv"><h3>Crie a conta grátis</h3><p>Nome, e-mail e WhatsApp. Sem cartão. O painel abre na hora, no celular ou no computador.</p></div>
       <div class="step rv" data-d="1"><h3>Traga o primeiro aluno</h3><p>Mande o seu link de cadastro no WhatsApp dele. Ele entra sozinho. Ou cadastre você mesmo em <kbd>Clientes</kbd>.</p></div>
       <div class="step rv" data-d="2"><h3>Monte e envie</h3><p>Monte com os presets ou peça pra IA. O treino aparece no celular dele, pronto pra treinar.</p></div>
     </div>
@@ -509,20 +541,16 @@ body { margin: 0; }
   <!-- ===== FECHAMENTO ===== -->
   <section class="wrap final" id="baixar">
     <div class="final__box rv">
-      <span class="eyebrow">Sua conta continua ativa</span>
-      <h2 style="margin-top:.75rem">1 aluno grátis. Sem prazo. Sem cartão.</h2>
-      <p class="lead">Baixe o app, entre com o seu e-mail e mande o primeiro treino hoje. Se o seu aluno não gostar, você não perdeu nada. Se gostar, os outros entram quando você quiser.</p>
+      <span class="eyebrow">Teste grátis</span>
+      <h2 style="margin-top:.75rem">10 dias grátis. Sem cartão. Sem fidelidade.</h2>
+      <p class="lead">Crie a conta, monte o primeiro treino e veja ele no celular do aluno hoje. Depois do teste, 1 aluno continua grátis, sem prazo.</p>
       <div class="btn-row">
-        <a class="btn btn--lg" href="https://apps.apple.com/br/app/mt-fitness/id6444232332" data-store="ios" data-track-cta="app_download" data-track-location="final_ios">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.6-1-2.6-3.8zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.9-1 2.9 1.1.1 2.2-.5 2.8-1.4z"/></svg>
-          Baixar para iPhone
-        </a>
-        <a class="btn btn--lg btn--ghost" href="https://play.google.com/store/apps/details?id=com.rafaelmuttoni.mtfitness" data-store="android" data-track-cta="app_download" data-track-location="final_android">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l.1.1 9.5-9.5v-.2L3.7 2.2l-.1.1z"/><path d="M16.4 15.5l-3.2-3.2v-.2l3.2-3.2.1.1 3.8 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2.1-.1.1z" fill-opacity=".8"/><path d="M16.5 15.4L13.2 12 3.6 21.7c.4.4 1 .4 1.6.1l11.3-6.4" fill-opacity=".6"/><path d="M16.5 8.6L5.2 2.2c-.6-.4-1.2-.3-1.6.1l9.6 9.7 3.3-3.4z" fill-opacity=".9"/></svg>
-          Baixar para Android
+        <a class="btn btn--lg" href="https://landing.mtapp.com.br/master-training-v11" data-track-cta="free_trial" data-track-location="final">
+          Começar meus 10 dias grátis
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
-      <p class="btn-note">Grátis nas duas lojas · o login é o mesmo da sua conta</p>
+      <p class="btn-note">Nome, e-mail e WhatsApp. Só isso.</p>
     </div>
   </section>
 
@@ -531,9 +559,7 @@ body { margin: 0; }
     <div class="foot__row">
       <a class="brand" href="https://mtapp.com.br"><img src="app/mt-logo.png" width="34" height="34" alt=""><span>Master Training</span></a>
       <nav>
-        <a href="https://apps.apple.com/br/app/mt-fitness/id6444232332" data-store="ios">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.rafaelmuttoni.mtfitness" data-store="android">Google Play</a>
-        <a href="https://mtapp.com.br/login">Entrar pelo computador</a>
+        <a href="https://mtapp.com.br/login">Já tenho conta</a>
         <a href="https://mtapp.com.br/privacy">Privacidade</a>
       </nav>
     </div>
@@ -542,41 +568,13 @@ body { margin: 0; }
 
   <!-- ===== BARRA FIXA (celular) ===== -->
   <div class="sticky-cta" id="stickyCta">
-    <a class="btn btn--lg js-store" href="#" data-track-cta="app_download" data-track-location="barra_fixa">Baixar o app agora</a>
+    <a class="btn btn--lg" href="https://landing.mtapp.com.br/master-training-v11" data-track-cta="free_trial" data-track-location="barra_fixa">Começar meus 10 dias grátis</a>
   </div>
 </div>
 
 <script>
 (function () {
-  var APP_STORE = 'https://apps.apple.com/br/app/mt-fitness/id6444232332';
-  var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.rafaelmuttoni.mtfitness';
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* Loja certa pro aparelho. No computador, o botão leva pro bloco com as duas lojas. */
-  var ua = navigator.userAgent || '';
-  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  var isAndroid = /Android/.test(ua);
-  document.querySelectorAll('.js-store').forEach(function (a) {
-    if (isIOS) { a.href = APP_STORE; a.setAttribute('data-store', 'ios'); }
-    else if (isAndroid) { a.href = PLAY_STORE; a.setAttribute('data-store', 'android'); }
-    else { a.href = '#baixar'; }
-  });
-
-  /* Clique na loja -> pixel (navegador) + /api/fb-event (servidor) com o MESMO event_id, igual à /mobile. */
-  function uid() { return (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + '-' + Math.random().toString(16).slice(2); }
-  function gc(n) { var m = document.cookie.match('(^|; )' + n + '=([^;]+)'); return m ? decodeURIComponent(m[2]) : ''; }
-  document.addEventListener('click', function (ev) {
-    var a = ev.target && ev.target.closest ? ev.target.closest('a[data-store]') : null;
-    if (!a) return;
-    var eid = uid(), store = a.getAttribute('data-store');
-    try { if (window.fbq) fbq('trackCustom', 'AppDownloadClick', { store: store }, { eventID: eid }); } catch (e) {}
-    var sp = new URLSearchParams(location.search), fbc = gc('_fbc');
-    if (!fbc && sp.get('fbclid')) fbc = 'fb.1.' + Date.now() + '.' + sp.get('fbclid');
-    try {
-      fetch('/api/fb-event', { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
-        body: JSON.stringify({ event_id: eid, event_name: 'AppDownloadClick', event_source_url: location.href, fbp: gc('_fbp'), fbc: fbc, test_event_code: sp.get('fb_test') || '' }) }).catch(function () {});
-    } catch (e) {}
-  }, true);
 
   /* A pilha de telas do hero: a do meio na frente, as outras atrás, menores e escuras.
      Troca sozinha, pausa no toque, setas, arrastar, clique numa tela de trás, pontinhos e teclado. */
@@ -684,6 +682,7 @@ body { margin: 0; }
     document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
   }
 })();
+
 </script>
 </body>
 </html>
